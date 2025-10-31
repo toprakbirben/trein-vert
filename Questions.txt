@@ -1,0 +1,50 @@
+
+1. Verify with ZugFinder whether all train delay data for country X is complete.
+   German data is not fully complete, not even delay for trains. 
+
+   ice 41
+
+2. Identify alternative data sources if ZugFinder data is missing or incomplete.
+    - govdata.de
+    - gtfs.de
+
+3. Confirm the official minimum transfer time per station and national transfer protocol.
+    - These two numbers are readily available inside of transfers and stops. Transfers include minimum transfer time and stop_id's, and also transfer protocol
+    - Take the stops and make a dictionary/array to store them inside of their parent stops(station) parent_x: childx, childy, childz
+    - for each station get the minimum transfer time for each transfer protocol
+    - So it would look like [station, time, protocol]
+
+    https://gtfs.org/documentation/schedule/reference/#transferstxt
+
+4. Determine the minimum PII required for claim filing and confirm with the railway operator.
+
+    - First Name
+    - Last Name
+    - Adress
+    - Bank Information (Acc Nr, IBAN, BIC)
+    - DoB for users with BahnCard 100 
+    
+    ****
+    For 60<x<120 minutes, 25% 
+    120+ 50%
+    -> of the fare for a single journeys
+
+    - Departure, Destination station with both actual and planned departure/arrival
+
+5. Continuously collect new journeys (up to 3 months old) for eligibility testing.
+
+
+6. Optimize gathering and caching of reference trips for the route planner.
+
+
+7. Manually test trip eligibility to refine heuristics.
+
+
+8. Research GitHub repositories that may support delay detection or route analysis.
+
+    - https://github.com/rijdendetreinen/gotrain (NS)
+    - https://github.com/sb12/OSMTrainRouteAnalysis (mainly OpenStreetMap.com)
+
+#
+9. Engage local train hobbyists or developers to validate technical assumptions. 
+
